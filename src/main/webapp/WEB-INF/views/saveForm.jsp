@@ -22,10 +22,11 @@
         <input type="button" value="이메일중복체크" onclick="emailCheck()">
     </div>
     <div class="textForm">
-        <input name="pw" type="password" class="pw" placeholder="비밀번호" id="pw">
+        <input name="pw" type="password" class="pw" placeholder="비밀번호" id="pw" onblur="passCheck2()">
+        <span id="pass_result2"></span>
     </div>
     <div class="textForm">
-        <input name="pwConfirm" type="password" class="pw" placeholder="비밀번호 확인" id="pw2" onblur="passCheck()">
+        <input name="pwConfirm" type="password" class="pw" placeholder="비밀번호 확인" id="pw2" onblur="passCheck()" disabled="">
         <span id="pass_result"></span>
     </div>
     <div class="textForm">
@@ -85,11 +86,33 @@
             $("#submit1").attr("disabled", "disabled");
 
         }
+    }
 
+    const passCheck2 = () => {
+        const pass1 = document.getElementById("pw").value;
+        const regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/g;
+        const pass_result2 = document.getElementById("pass_result2");
+        if (pass1.match(regExp)){
+            pass_result2.innerHTML = "사용할수있는 비밀번호 입니다."
+            pass_result2.style.color = "green";
+            $("#pw2").attr("disabled",false);
+            $("#submit1").removeAttr("disabled");
 
-
+        }else {
+            pass_result2.innerHTML = "특수문자가를 포함해 주세요"
+            pass_result2.style.color = "red";
+            $("#submit1").attr("disabled", "disabled");
+            $("#pw2").attr("disabled",true);
+        }
 
     }
+
+
+
+
+
+
+
 
     const nicknameCheck = () => {
         const name = document.getElementById("nickname").value;
