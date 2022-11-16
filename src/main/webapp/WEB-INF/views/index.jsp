@@ -25,6 +25,7 @@
     <!-- 외부 스타일시트 적용 -->
     <link rel="stylesheet" href="../../resources/css/bootstrap.css">
    <link rel="stylesheet" href="../../resources/css/index.css">
+    <script src="/resources/js/jqury.js"></script>
 
 </head>
 <body>
@@ -66,11 +67,11 @@
             <div id="login">
                 <h4>Log In</h4>
                 <form action="#" method="POST">
-                    아이디
-                    <input type="text" name="memberId"><br>
+                    이메일
+                    <input type="text" name="email" id="email"><br>
                     패스워드
-                    <input type="password" name="memberPass" ><br>
-                    <input type="submit" value="로그인">
+                    <input type="password" name="pw" id="pw" ><br>
+                    <input type="button" value="로그인" onclick="loginCheck()">
                     <a href="/member/save" target="_blank">회원가입</a>
                     <a href="/loginPage">비밀번호 분실</a>
                 </form>
@@ -83,6 +84,37 @@
 </footer>
 
 </body>
+<script>
+    const loginCheck = () => {
+        const memberEmail = document.getElementById("email").value
+        const memberPassword = document.getElementById("pw").value
+        $.ajax({
+            type:"post",
+            url:"/member/login",
+            data:{
+                email : memberEmail,
+                pw : memberPassword
+            },
+            dataType: "text",
+
+            success : function (result){
+                if(result == "ok"){
+                    alert("로그인성공")
+                    location.href = "/";
+                }else {
+                    alert("아이디 또는 비밀번호를 다시확인해주세요")
+                }
+
+            },
+            error : function (){
+                alert("아이디 또는 비밀번호를 다시확인해주세요")
+            }
+
+        })
+
+    }
+
+</script>
 
 
 </html>
