@@ -1,0 +1,757 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0px solid silver;
+    outline: none;
+}
+
+html,
+body {
+    font-weight: 300;
+    font-size: 12px;
+    color: #1c1c1c;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    word-break: break-all;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+h5 {
+    font-size: 1.2rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+main {
+    margin: 6rem auto;
+    padding: 14rem 2rem;
+    color: white;
+    width: 360px;
+    background: #111;
+    text-align: center;
+}
+
+article {
+    width: 360px;
+    margin: 6rem auto;
+    border: 1px solid #ddd;
+}
+
+img {
+    width: 100px;
+}
+
+button {
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #000;
+    color: #fff;
+}
+
+label {
+    cursor: pointer;
+}
+
+hr {
+    margin: 0 auto;
+    width: 360px;
+    border: 1px solid #000;
+}
+
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000;
+}
+
+.header {
+    padding-bottom: 10rem;
+}
+
+/*start*/
+
+.login {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.login h2 {
+    margin-bottom: 20px;
+    padding: 30px 10px;
+}
+
+.login form input {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+    padding: 20px 0;
+}
+
+.login form> :nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.login form> :nth-child(3) div {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.login form> :nth-child(4) {
+    padding: 20px 0;
+}
+
+.login form> :nth-child(4) button {
+    padding: 15px 80px;
+    background: #000;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.login form> :nth-child(4) button:hover {
+    opacity: 0.7;
+}
+
+.login h4 {
+    margin-bottom: 20px;
+    line-height: 4rem;
+}
+
+.login form> :nth-child(6) {
+    display: flex;
+    justify-content: space-around;
+}
+
+.login form> :nth-child(6) button {
+    padding: 0;
+    background: #fff;
+}
+
+.login form> :nth-child(6) img {
+    width: 60px;
+    height: 50px;
+    padding: 0 10px;
+    border-radius: 50%;
+    transition: 0.6s;
+}
+
+.login form> :nth-child(6) img:hover {
+    background: #fff;
+    border-radius: 0%;
+    border: 0px;
+}
+
+/*비회원 주문조회*/
+.login2 {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.login2 h2 {
+    margin-bottom: 20px;
+    padding: 30px 10px;
+}
+
+.login2 form input {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+    padding: 20px 0;
+}
+
+.login2 form> :nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.login2 form> :nth-child(3) div {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.login2 form> :nth-child(4) {
+    padding: 20px 0;
+}
+
+.login2 form> :nth-child(4) button {
+    padding: 15px 80px;
+    background: #000;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.login2 form> :nth-child(4) button:hover {
+    opacity: 0.7;
+}
+
+.login2 h4 {
+    margin-bottom: 20px;
+    line-height: 4rem;
+}
+
+.login2 form> :nth-child(6) {
+    display: flex;
+    justify-content: space-around;
+}
+
+.login2 form> :nth-child(6) button {
+    padding: 0;
+    background: #fff;
+}
+
+.login2 form> :nth-child(6) img {
+    width: 60px;
+    height: 50px;
+    padding: 0 10px;
+    border-radius: 50%;
+    transition: 0.6s;
+}
+
+.login2 form> :nth-child(6) img:hover {
+    background: #fff;
+    border-radius: 0%;
+    border: 0px;
+}
+
+/* 아이디찾기 */
+.ids {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.ids h2 {
+    padding: 20px 0;
+}
+
+.ids input {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+}
+
+.ids section {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ids section div {
+    display: inline;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.ids button {
+    margin: 20px 0;
+    padding: 15px 80px;
+    background: #000;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.ids button:hover {
+    opacity: 0.7;
+}
+
+/* 비밀번호 찾기 */
+.pws {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.pws h2 {
+    padding: 20px 0;
+}
+
+.pws input {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+}
+
+.pws section {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pws section div {
+    display: inline;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.pws button {
+    margin: 20px 0;
+    padding: 15px 80px;
+    background: #000;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.pws button:hover {
+    opacity: 0.7;
+}
+
+/* 회원가입환영 */
+.join{
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.join h1{
+    text-align: center;
+    padding: 20px 0;
+}
+
+.join h2{
+    text-align: center;
+    padding: 20px 0;
+}
+
+.join p{
+    font-weight: lighter;
+    text-align: center;
+    line-height: 1.3rem;
+}
+
+.join section{
+    padding: 2rem 0;
+}
+
+.join> :last-child{
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.join> section> button{
+    width: 200px;
+    height: 50px;
+    background: black;
+    color:white;
+    display: block;
+    margin: auto;
+}
+
+.join> :last-child p{
+    line-height: 3rem;
+}
+
+.join> :last-child div{
+    display: flex;
+    justify-content: space-around;
+}
+
+.join> :last-child div img{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* 약관동의 */
+.join1 {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.join1 h2 {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.join1> :nth-child(2) {
+    width: 100%;
+    padding: 15px 0;
+    background: #ddd;
+    display: flex;
+    justify-content: space-around;
+}
+
+.join1> :nth-child(3) div {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+    font-size: 1.1rem;
+}
+
+.join1> :nth-child(4) {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.join1> :nth-child(4) h5 {
+    color: #aaa;
+}
+
+.join1> :nth-child(4) div {
+    display: inline;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.join1> :nth-child(5) {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.join1> :nth-child(5) button {
+    padding: 15px 70px;
+    background: #fff;
+    border: 1px solid #bbb;
+}
+
+.join1> :nth-child(5) button:hover {
+    color: #fff;
+    background: #000;
+}
+
+.join1> :nth-child(6) {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.join1> :nth-child(6) h4 {
+    margin-bottom: 20px;
+    line-height: 4rem;
+}
+
+.join1> :nth-child(6) button {
+    padding: 0;
+    background: #fff;
+}
+
+.join1> :nth-child(6) img {
+    width: 60px;
+    height: 50px;
+    padding: 0 10px;
+    border-radius: 50%;
+    transition: 0.6s;
+}
+
+.join1> :nth-child(6) img:hover {
+    background: #fff;
+    border-radius: 0%;
+    border: 0px;
+}
+
+/*회원정보 입력*/
+.join2 {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.join2 h2 {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.join2 section {
+    padding: 10px 0;
+}
+
+.join2> :nth-child(2) {
+    padding: 15px 0;
+    width: 100%;
+    background: #ddd;
+    display: flex;
+    justify-content: space-around;
+}
+
+.join2 input {
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.join2> :nth-child(5) div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.join2> :nth-child(5) div button {
+    width: 100px;
+    padding: 10px;
+    background: #777;
+    color: #fff;
+}
+
+.join2>:nth-child(8) div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.join2>:nth-child(10) {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.join2>:nth-child(10) div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.join2>:nth-child(10) input {
+    width: 15px;
+    padding: 10px 0;
+    height: 20px;
+    margin: 0 2.5px;
+}
+
+.join2>:nth-child(10) label {
+    cursor: pointer;
+}
+
+.join2>:nth-child(10) a {
+    text-decoration: underline;
+}
+
+/*회원정보 선택사항 */
+.join22 {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.join22>div {
+    margin: 20px 0;
+}
+
+.join22>:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+}
+
+.join22>:nth-child(1) h3 {
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.join22>:nth-child(1) h4 {
+    margin-right: 10px;
+}
+
+.join22>:nth-child(1) h5 {
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
+
+.join22>:nth-child(2) {
+    display: flex;
+}
+
+.join22>:nth-child(2) input {
+    height: 20px;
+    padding: 15px 0;
+    margin: 0 5px;
+}
+
+.join22 section {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.join22 select {
+    width: 280px;
+    height: 40px;
+}
+
+.join22> :nth-child(5) {
+    text-align: center;
+}
+
+.join22> :nth-child(5) button {
+    padding: 15px 70px;
+    background: #fff;
+    border: 1px solid #bbb;
+}
+
+.join22> :nth-child(5) button:hover {
+    color: #fff;
+    background: #000;
+}
+
+/*회원가입 완료*/
+.complite {
+    width: 360px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.complite h2 {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.complite> :nth-child(2) {
+    width: 100%;
+    padding: 15px 0;
+    background: #ddd;
+    display: flex;
+    justify-content: space-around;
+}
+
+.complite>:nth-child(3) {
+    text-align: center;
+}
+
+.complite>:nth-child(3) img {
+    margin: 20px 0;
+    border-radius: 50% 50%;
+    border: 1px solid gray;
+}
+
+.complite>:nth-child(3) h3 {
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.complite>:nth-child(3) h5 {
+    font-size: 0.95rem;
+    line-height: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.complite>:nth-child(3) button {
+    width: 100%;
+    background: #fff;
+    color: #000;
+    border: 1px solid #bbb;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.complite>:nth-child(3) button:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* 회원탈퇴 */
+.bye {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.bye h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.bye p {
+    line-height: 1.5rem;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid silver;
+}
+
+.bye> :nth-child(3) {
+    padding: 20px 10px;
+}
+
+.bye> :nth-child(3)>input {
+    border-bottom: 1px solid silver;
+}
+
+.bye h5 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.bye :nth-child(4) :nth-child(2) {
+    padding: 20px 0;
+    text-align: left;
+}
+
+.bye textarea {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.bye button {
+    margin: 40px 40px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 100px;
+}
+
+.last {
+    width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.last h2 {
+    padding: 20px 0;
+}
+
+.last img {
+    width: 50px;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.last h5 {
+    padding: 20px 0;
+}
+
+.last button {
+    margin: 20px 0;
+    margin-bottom: 70px;
+}

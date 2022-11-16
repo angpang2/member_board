@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Member">
+    <insert id="save" parameterType="member">
+        insert into member(email,pw,picture,nickname)values (#{email} ,#{pw},#{picture},#{nickname})
+    </insert>
+
+    <select id="login" parameterType="member" resultType="member">
+        Select * from member where email=#{email} and pw=#{pw}
+    </select>
+
+    <select id="emailCheck" parameterType="String" resultType="member">
+        select * from member where email=#{email}
+    </select>
+
+    <select id="nicknameCheck" parameterType="String" resultType="member">
+        select * from member where nickname=#{nickname}
+    </select>
+
+
+
+</mapper>
