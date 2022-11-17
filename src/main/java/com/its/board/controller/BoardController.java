@@ -22,7 +22,8 @@ public class BoardController {
     public String board(@ModelAttribute PageDTO pageDTO, Model model){
         List<BoardDTO>boardList = boardService.boardList(pageDTO);
         model.addAttribute("boardList",boardList);
-        System.out.println(boardList);
+        PageDTO boardPage = boardService.boardPage(pageDTO);
+        model.addAttribute("paging",boardPage);
         return "/boardPage/board";
     }
 

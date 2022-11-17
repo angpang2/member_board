@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>board</title>
@@ -62,70 +64,18 @@
         <td class="date">2008/02/14</td>
         <td class="hit">1234</td>
     </tr>
-    <tr class="reply">
-        <td class="frm"><input type="checkbox" name="" id="chk_sel3" value=""><label for="chk_sel3">선택</label></td>
-        <td class="num">&nbsp;</td>
-        <td class="title" style="padding-left:20px;"><a href="#">블로그 개편 답글</a></td>
-        <td><a href="#">네이버맨</a></td>
-        <td class="date">2008/02/14</td>
-        <td class="hit">1234</td>
-    </tr>
-    <tr class="reply">
-        <td class="frm"><input type="checkbox" name="" id="chk_sel4" value=""><label for="chk_sel4">선택</label></td>
-        <td class="num">&nbsp;</td>
-        <td class="title" style="padding-left:30px;"><a href="#">블로그 개편 답글</a> <img src="img/ic_pic.gif" width="13" height="12" alt="첨부이미지" class="pic"> <a href="#" class="comment">[5]</a> <img src="img/ic_new.gif" width="10" height="9" alt="새글" class="new"></td>
-        <td><a href="#">네이버맨</a></td>
-        <td class="date">2008/02/14</td>
-        <td class="hit">1234</td>
-    </tr>
-    <tr>
-        <td class="frm"><input type="checkbox" name="" id="chk_sel5" value=""><label for="chk_sel5">선택</label></td>
-        <td class="num">9</td>
-        <td class="title"><a href="#">블로그 개편 작업 일정 1</a></td>
-        <td><a href="#">UIT랩</a></td>
-        <td class="date">2008/02/14</td>
-        <td class="hit">12345</td>
-    </tr>
-    <tr>
-        <td class="frm"><input type="checkbox" name="" id="chk_sel6" value=""><label for="chk_sel6">선택</label></td>
-        <td class="num">8</td>
-        <td class="title"><a href="#">블로그 개편 작업 일정 1</a></td>
-        <td><a href="#">UIT랩</a></td>
-        <td class="date">2008/02/14</td>
-        <td class="hit">12345</td>
-    </tr>
-    <tr>
-        <td class="frm"><input type="checkbox" name="" id="chk_sel7" value=""><label for="chk_sel7">선택</label></td>
-        <td class="num">7</td>
-        <td class="title"><a href="#">블로그 개편 작업 일정 1</a></td>
-        <td><a href="#">UIT랩</a></td>
-        <td class="date">2008/02/14</td>
-        <td class="hit">12345</td>
-    </tr>
-    <tr>
-        <td class="frm"><input type="checkbox" name="" id="chk_sel8" value=""><label for="chk_sel8">선택</label></td>
-        <td class="num">6</td>
-        <td class="title"><a href="#">블로그 개편 작업 일정 1</a></td>
-        <td><a href="#">UIT랩</a></td>
-        <td class="date">2008/02/14</td>
-        <td class="hit">12345</td>
-    </tr>
-    <tr>
-        <td class="frm"><input type="checkbox" name="" id="chk_sel9" value=""><label for="chk_sel9">선택</label></td>
-        <td class="num">5</td>
-        <td class="title"><a href="#">블로그 개편 작업 일정 1</a></td>
-        <td><a href="#">UIT랩</a></td>
-        <td class="date">2008/02/14</td>
-        <td class="hit">12345</td>
-    </tr>
-    <tr>
-        <td class="frm"><input type="checkbox" name="" id="chk_sel10" value=""><label for="chk_sel10">선택</label></td>
-        <td class="num">4</td>
-        <td class="title"><a href="#">블로그 개편 작업 일정 1</a></td>
-        <td><a href="#">UIT랩</a></td>
-        <td class="date">2008/02/14</td>
-        <td class="hit">12345</td>
-    </tr>
+    <c:forEach items="${boardList}" var="board">
+        <tr>
+        <tr>
+            <td class="frm"><input type="checkbox" name="" value=""><label for="chk_sel10">선택</label></td>
+            <td class="num">${board.board_id}</td>
+            <td class="title"><a href="#">${board.title}</a></td>
+            <td><a href="#">${board.writer}</a></td>
+            <td class="date">${board.regdate}</td>
+            <td class="hit">12345</td>
+        </tr>
+        </tr>
+    </c:forEach>
     </tbody>
 </table>
 
@@ -136,6 +86,56 @@
         </li>
     </ui>
 </div>
+
+<div class="container">
+    <ul class="pagination justify-content-center">
+        <c:choose>
+            <%-- 현재 페이지가 1페이지면 이전 글자만 보여줌 --%>
+        <c:when test="${paging.page<=1}">
+        <li class="page-item disabled">
+            <a class="page-link">[이전]</a>
+        </li>
+        </c:when>
+            <%-- 1페이지가 아닌 경우에는 [이전]을 클릭하면 현재 페이지보다 1 작은 페이지 요청 --%>
+        <c:otherwise>
+        <li class="page-item">
+            <a class="page-link" href="/board?page=${paging.page-1}">[이전]</a>
+        </li>
+        </c:otherwise>
+        </c:choose>
+
+        <%--  for(int i=startPage; i<=endPage; i++)      --%>
+        <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i" step="1">
+        <c:choose>
+            <%-- 요청한 페이지에 있는 경우 현재 페이지 번호는 텍스트만 보이게 --%>
+        <c:when test="${i eq paging.page}">
+        <li class="page-item active">
+            <a class="page-link">${i}</a>
+        </li>
+        </c:when>
+
+        <c:otherwise>
+        <li class="page-item">
+            <a class="page-link" href="/board?page=${i}">${i}</a>
+        </li>
+        </c:otherwise>
+        </c:choose>
+        </c:forEach>
+
+        <c:choose>
+        <c:when test="${paging.page>=paging.maxPage}">
+        <li class="page-item disabled">
+            <a class="page-link">[다음]</a>
+        </li>
+        </c:when>
+        <c:otherwise>
+        <li class="page-item">
+            <a class="page-link" href="/board?page=${paging.page+1}">[다음]</a>
+        </li>
+        </c:otherwise>
+        </c:choose>
+
+
 
 
 </body>

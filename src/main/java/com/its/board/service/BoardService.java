@@ -47,19 +47,28 @@ public class BoardService {
         pageDTO.setPAGE_LIMIT(limit);
        return boardRepository.boardList(pageDTO);
     }
+
+    public PageDTO boardPage(PageDTO pageDTO) {
+        //전체 글 갯수 조회
+        int boardCount = boardRepository.boardCount();
+        //필요 페이지 계산
+        int maxPage = (int)(Math.ceil((double)boardCount / pageDTO.getPAGE_LIMIT()));
+        //시작 페이지 값 계산
+        int startPage = (((int)(Math.ceil((double) pageDTO.getPage() / pageDTO.getBLOCK_LIMIT()))) - 1) * pageDTO.getBLOCK_LIMIT() + 1;
+        //끝 페이지 값 계산
+        int endPage = startPage + pageDTO.getBLOCK_LIMIT() - 1;
+        if(endPage>maxPage){
+            endPage = maxPage;
+        }
+        pageDTO.setMaxPage(maxPage);
+        pageDTO.setEndPage(endPage);
+        pageDTO.setStartPage(startPage);
+        return pageDTO;
+    }
 }
 
 
-//
-//    public List<BoardDTO> pagingList(int page) {
-//        // page=1,0 ; page=2,3 ; page=3,6
-//        int pagingStart = (page-1)* PagingConst.PAGE_LIMIT;
-//        Map<String,Integer> pagingParams = new HashMap<>();
-//        pagingParams.put("start",pagingStart);
-//        pagingParams.put("limit",PagingConst.PAGE_LIMIT);
-//        List<BoardDTO>pagingList = boardRepository.pagingList(pagingParams);
-//        return pagingList;
-//    }
+
 //
 //
 //    public PageDTO pagingParam(int page) {
