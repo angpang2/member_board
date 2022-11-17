@@ -23,9 +23,6 @@ public class BoardDTO {
     //
     private MultipartFile boardFile;
     //
-    private String originalFileName;
-    //
-    private String storedFileName;
-    //
+    private String filename;
     private Long member_id;
 }

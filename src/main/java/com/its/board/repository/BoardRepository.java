@@ -12,4 +12,12 @@ public class BoardRepository {
     public void boardSave(BoardDTO boardDTO) {
         sql.insert("Board.save",boardDTO);
     }
+
+    public void boardsaveFile(BoardDTO boardDTO) {
+        sql.insert("Board.saveFile",boardDTO);
+    }
+
+    public BoardDTO boardSelect(BoardDTO boardDTO) {
+        return sql.selectOne("Board.select",boardDTO);
+    }
 }

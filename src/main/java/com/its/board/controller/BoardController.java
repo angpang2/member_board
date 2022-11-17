@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
+
 @Controller
 public class BoardController {
     @Autowired
@@ -23,8 +25,7 @@ public class BoardController {
     }
 
     @PostMapping("/board/save")
-    public String boardSave(@ModelAttribute BoardDTO boardDTO){
-        System.out.println("boardDTO = " + boardDTO);
+    public String boardSave(@ModelAttribute BoardDTO boardDTO) throws IOException {
         boardService.boardSave(boardDTO);
         return "/boardPage/board";
     }

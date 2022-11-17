@@ -5,10 +5,19 @@
 
 <mapper namespace="Board">
 
-    <insert id="save" parameterType="board">
+    <insert id="save" parameterType="board" useGeneratedKeys="true" keyProperty="board_id">
         insert into board(writer,title,content,member_id)
         values (#{writer},#{title},#{content},#{member_id})
     </insert>
+
+    <select id="select" parameterType="board" resultType="board">
+        select * from board where board_id = #{board_id}
+    </select>
+
+    <insert id="saveFile" parameterType="board">
+        insert into file(filename,board_id)values(#{filename},#{board_id})
+    </insert>
+
 
 
 
