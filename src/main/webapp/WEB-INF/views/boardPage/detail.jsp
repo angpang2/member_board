@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -25,6 +26,10 @@
         작성자  <input type="text" name="writer"  class="form-control" value="${board.writer}" readonly >
         제목  <input type="text" name="title"  class="form-control" value="${board.title}">
         내용   <textarea name="content" cols="30" rows="10" class="form-control">${board.content}</textarea>
+        <c:if test="${file.filename != null}">
+            <img src="${pageContext.request.contextPath}/upload/${file.filename}"
+                 alt="" width="50" height="50">
+        </c:if>
         <input type="submit" value="작성하기">
     </form>
 </div>

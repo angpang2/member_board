@@ -1,6 +1,7 @@
 package com.its.board.service;
 
 import com.its.board.dto.BoardDTO;
+import com.its.board.dto.FileDTO;
 import com.its.board.dto.PageDTO;
 import com.its.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class BoardService {
@@ -68,6 +67,10 @@ public class BoardService {
 
     public BoardDTO boardDetail(Long board_id) {
         return boardRepository.boardDetail(board_id);
+    }
+
+    public FileDTO fileCheck(Long board_id) {
+        return boardRepository.fileCheck(board_id);
     }
 }
 

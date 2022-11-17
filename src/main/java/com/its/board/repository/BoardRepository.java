@@ -1,6 +1,7 @@
 package com.its.board.repository;
 
 import com.its.board.dto.BoardDTO;
+import com.its.board.dto.FileDTO;
 import com.its.board.dto.PageDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,9 @@ public class BoardRepository {
 
     public BoardDTO boardDetail(Long board_id) {
         return sql.selectOne("Board.detail",board_id);
+    }
+
+    public FileDTO fileCheck(Long board_id) {
+        return sql.selectOne("Board.fileCheck",board_id);
     }
 }

@@ -30,6 +30,10 @@
         select * from board where board_id = #{board_id}
     </select>
 
+    <select id="fileCheck" resultType="file" parameterType="Long">
+        select * from file where board_id = #{board_id}
+    </select>
+
 
 
 

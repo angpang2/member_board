@@ -1,6 +1,7 @@
 package com.its.board.controller;
 
 import com.its.board.dto.BoardDTO;
+import com.its.board.dto.FileDTO;
 import com.its.board.dto.PageDTO;
 import com.its.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,12 +36,16 @@ public class BoardController {
     @PostMapping("/board/save")
     public String boardSave(@ModelAttribute BoardDTO boardDTO) throws IOException {
         boardService.boardSave(boardDTO);
-        return "/boardPage/board";
+        return "redirect:/board";
     }
 
     @GetMapping("/board/detail")
     public String boardDetail(Model model,@RequestParam("board_id")Long board_id){
         BoardDTO boardDTO =boardService.boardDetail(board_id);
+        FileDTO result = boardService.fileCheck(board_id);
+        if(result != null){
+            model.addAttribute("file",result);
+        }
         model.addAttribute("board",boardDTO);
         return "/boardPage/detail";
     }
