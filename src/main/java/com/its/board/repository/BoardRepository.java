@@ -31,4 +31,8 @@ public class BoardRepository {
     public int boardCount() {
         return sql.selectOne("Board.count");
     }
+
+    public BoardDTO boardDetail(Long board_id) {
+        return sql.selectOne("Board.detail",board_id);
+    }
 }

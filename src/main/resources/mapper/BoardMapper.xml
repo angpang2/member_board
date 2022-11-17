@@ -26,6 +26,10 @@
         select count(board_id) from board
     </select>
 
+    <select id="detail" resultType="board" parameterType="Long">
+        select * from board where board_id = #{board_id}
+    </select>
+
 
 
 

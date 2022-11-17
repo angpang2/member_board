@@ -38,5 +38,12 @@ public class BoardController {
         return "/boardPage/board";
     }
 
+    @GetMapping("/board/detail")
+    public String boardDetail(Model model,@RequestParam("board_id")Long board_id){
+        BoardDTO boardDTO =boardService.boardDetail(board_id);
+        model.addAttribute("board",boardDTO);
+        return "/boardPage/detail";
+    }
+
 
 }

@@ -27,7 +27,10 @@
         .tbl_type tr.reply .title a{padding-left:12px;background:url(img/ic_reply.gif) 0 1px no-repeat}
         .tbl_type tr.reply td a.comment{padding:0;background:none;color:#f00;font-size:12px;font-weight:bold}
         /* //UI Object */
+
     </style>
+    <link rel="stylesheet" href="/resources/css/bootstrap.css">
+    <script src="/resources/js/jqury.js"></script>
 </head>
 <body>
 <!-- UI Object -->
@@ -69,7 +72,7 @@
         <tr>
             <td class="frm"><input type="checkbox" name="" value=""><label for="chk_sel10">선택</label></td>
             <td class="num">${board.board_id}</td>
-            <td class="title"><a href="#">${board.title}</a></td>
+            <td class="title"><a href="board/detail?board_id=${board.board_id}">${board.title}</a></td>
             <td><a href="#">${board.writer}</a></td>
             <td class="date">${board.regdate}</td>
             <td class="hit">12345</td>

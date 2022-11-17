@@ -65,6 +65,10 @@ public class BoardService {
         pageDTO.setStartPage(startPage);
         return pageDTO;
     }
+
+    public BoardDTO boardDetail(Long board_id) {
+        return boardRepository.boardDetail(board_id);
+    }
 }
 
 
