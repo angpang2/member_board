@@ -18,6 +18,14 @@
         insert into file(filename,board_id)values(#{filename},#{board_id})
     </insert>
 
+    <select id="list" resultType="board" parameterType="page">
+        select * from board order by board_id desc limit #{start} , #{PAGE_LIMIT}
+    </select>
+
+    <select id="count" resultType="Integer">
+        select count(board_id) from board
+    </select>
+
 
 
 

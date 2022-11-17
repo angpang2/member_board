@@ -1,9 +1,12 @@
 package com.its.board.repository;
 
 import com.its.board.dto.BoardDTO;
+import com.its.board.dto.PageDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class BoardRepository {
@@ -19,5 +22,13 @@ public class BoardRepository {
 
     public BoardDTO boardSelect(BoardDTO boardDTO) {
         return sql.selectOne("Board.select",boardDTO);
+    }
+
+    public List<BoardDTO> boardList(PageDTO pageDTO) {
+        return sql.selectList("Board.list",pageDTO);
+    }
+
+    public int boardCount() {
+        return sql.selectOne("Board.count");
     }
 }
