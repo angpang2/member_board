@@ -40,7 +40,7 @@
             success : function (result){
                 if(result == "ok"){
                     alert("로그인성공")
-                    location.href = "/";
+                    location.href = "../../..";
                 }else {
                     alert("아이디 또는 비밀번호를 다시확인해주세요")
                 }

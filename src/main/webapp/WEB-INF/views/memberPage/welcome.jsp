@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>Title</title>
-  <link rel="stylesheet" href="../../resources/css/ex.css">
+  <link rel="stylesheet" href="../../../resources/css/ex.css">
 </head>
 <body>
 <article class="complite">

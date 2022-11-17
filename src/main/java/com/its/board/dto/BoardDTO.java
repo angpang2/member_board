@@ -27,5 +27,5 @@ public class BoardDTO {
     //
     private String storedFileName;
     //
-    private int member_id;
+    private Long member_id;
 }

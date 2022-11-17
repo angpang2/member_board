@@ -31,7 +31,7 @@
 
 <header>
     <h1>
-        <a href="index.html">Web Shop</a>
+        <a href="/">Web Shop</a>
     </h1>
 </header>
 <nav>
@@ -46,7 +46,7 @@
 <aside id="left">
     <h4>카테고리</h4>
     <ul>
-        <li><a href="#" target="iframe1">컴퓨터</a></li>
+        <li><a href="/board" target="iframe1">컴퓨터</a></li>
         <li><a href="#" target="iframe1">의류</a></li>
         <li><a href="#" target="iframe1">음악</a></li>
         <li><a href="#" target="iframe1">영화</a></li>

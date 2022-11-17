@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MemberDTO {
 
-        private Long id;
+        private Long member_id;
         private String email;
         private String pw;
         private String nickname;

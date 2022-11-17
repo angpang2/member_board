@@ -17,12 +17,12 @@ public class MemberController {
 
     @GetMapping("/member/save")
     public String saveForm(){
-        return "/saveForm";
+        return "memberPage/saveForm";
     }
 
     @GetMapping("/loginPage")
     public String loginPage(){
-        return "/loginPage";
+        return "memberPage/loginPage";
     }
 
     @PostMapping("/member/save")
@@ -30,13 +30,13 @@ public class MemberController {
        MemberDTO result = memberService.save(memberDTO);
         model.addAttribute("model",result);
         System.out.println("memberDTO = " + memberDTO + ", model = " + model);
-        return "/welcome";
+        return "memberPage/welcome";
     }
 
     @PostMapping("/member/login")
     public @ResponseBody String loginCheck(@ModelAttribute MemberDTO memberDTO , HttpSession session){
         MemberDTO result = memberService.login(memberDTO);
-        System.out.println("memberDTO = " + memberDTO + ", session = " + session);
+        System.out.println(result);
         if(result != null){
             session.setAttribute("member",result);
             return "ok";
