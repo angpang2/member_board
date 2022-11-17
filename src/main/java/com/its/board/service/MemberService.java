@@ -22,7 +22,7 @@ public class MemberService {
             String originalFilename = memberFile.getOriginalFilename();
             String storedFileName = System.currentTimeMillis()+"-"+originalFilename;
             memberDTO.setPicture(storedFileName);
-            String savePath = "D:\\spring_img\\"+storedFileName;
+            String savePath = "D:\\spring_img\\" + storedFileName;
             memberFile.transferTo(new File(savePath));
             memberRepository.save(memberDTO);
             return memberDTO;

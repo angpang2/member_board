@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -14,8 +15,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +28,7 @@
 
 </head>
 <body>
+
 <header>
     <h1>
         <a href="index.html">Web Shop</a>
@@ -64,6 +64,9 @@
 <aside id="right">
     <div id="mainProfile">
     </div>
+
+    <c:choose>
+        <c:when test="${sessionScope.member.email == null}">
             <div id="login">
                 <h4>Log In</h4>
                 <form action="#" method="POST">
@@ -76,6 +79,22 @@
                     <a href="/loginPage">비밀번호 분실</a>
                 </form>
             </div>
+        </c:when>
+    <c:otherwise>
+           <span id="profile">
+                <c:if test="${sessionScope.member.picture != null}">
+                            <img src="${pageContext.request.contextPath}/upload/${sessionScope.member.picture}"
+                                 alt="" width="50" height="50">
+                </c:if>
+                </span>
+        <div id="login">
+            <h4>Log In</h4>
+                <span>${sessionScope.member.nickname}님 환영합니다.</span>
+            <li><a href="#"  onclick="con()">로그아웃</a> </li>
+        </div>
+    </c:otherwise>
+    </c:choose>
+
 
 
 </aside>
@@ -112,6 +131,15 @@
 
         })
 
+    }
+
+    const con = () => {
+
+        if (!confirm("정말로 로그아웃 하기겠습니까?")) {
+
+        } else {
+            location.href = "/logout"
+        }
     }
 
 </script>
