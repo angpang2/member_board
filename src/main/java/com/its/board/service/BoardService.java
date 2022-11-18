@@ -72,6 +72,10 @@ public class BoardService {
     public FileDTO fileCheck(Long board_id) {
         return boardRepository.fileCheck(board_id);
     }
+
+    public void boardUpdate(BoardDTO boardDTO) {
+        boardRepository.boardUpdate(boardDTO);
+    }
 }
 
 

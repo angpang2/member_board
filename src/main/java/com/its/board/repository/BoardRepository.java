@@ -40,4 +40,8 @@ public class BoardRepository {
     public FileDTO fileCheck(Long board_id) {
         return sql.selectOne("Board.fileCheck",board_id);
     }
+
+    public void boardUpdate(BoardDTO boardDTO) {
+        sql.update("Board.update",boardDTO);
+    }
 }

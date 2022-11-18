@@ -22,20 +22,30 @@
 <body>
 
 <div class="container" id="save-form" >
-    <form action="/board/save" method="post" name="saveForm"  class="form-control" enctype="multipart/form-data">
         작성자  <input type="text" name="writer"  class="form-control" value="${board.writer}" readonly >
-        제목  <input type="text" name="title"  class="form-control" value="${board.title}">
-        내용   <textarea name="content" cols="30" rows="10" class="form-control">${board.content}</textarea>
+        제목  <input type="text" name="title"  class="form-control" value="${board.title}" readonly>
+        내용   <textarea name="content" cols="30" rows="10" class="form-control" readonly>${board.content}</textarea>
         <c:if test="${file.filename != null}">
             <img src="${pageContext.request.contextPath}/upload/${file.filename}"
                  alt="" width="50" height="50">
         </c:if>
-        <input type="submit" value="작성하기">
-    </form>
+        <c:if test="${sessionScope.member.member_id !=null}">
+            <input type="button" value="수정하기" onclick="modify()">
+        </c:if>
 </div>
 
 
 
 
 </body>
+<script>
+    const modify = () => {
+        console.log("함수호출")
+        location.href = "/updateForm?board_id="+${board.board_id}
+    }
+
+</script>
+
+
+
 </html>

@@ -34,7 +34,9 @@
         select * from file where board_id = #{board_id}
     </select>
 
-
+    <update id="update" parameterType="board">
+        update board set title = #{title} , content=#{content} where board_id=#{board_id}
+    </update>
 
 
 
