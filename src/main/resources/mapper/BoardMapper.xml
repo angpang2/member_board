@@ -58,6 +58,11 @@
         update board set commentcount=commentcount+1 where board_id = #{board_id}
     </update>
 
+    <update id="boardUp" parameterType="Long">
+        update board set hit=hit+1 where board_id = #{board_id}
+    </update>
+
+
 
 
 

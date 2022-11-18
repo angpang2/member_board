@@ -72,4 +72,9 @@ public class BoardRepository {
         int result = sql.update("Board.up",board_id);
         System.out.println("result = " + result);
     }
+
+    public void boardUp(Long board_id) {
+        sql.update("Board.boardUp",board_id);
+
+    }
 }

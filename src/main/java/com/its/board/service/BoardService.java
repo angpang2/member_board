@@ -102,6 +102,12 @@ public class BoardService {
         boardRepository.commentCountUp(board_id);
 
     }
+
+    public void boardUp(Long board_id) {
+        boardRepository.boardUp(board_id);
+
+
+    }
 }
 
 

@@ -56,7 +56,8 @@ public class BoardController {
             //댓글수 count
             int commentCount = boardService.commentCount(board_id);
             model.addAttribute("commentCount",commentCount);
-
+            //조회수 올리기
+            boardService.boardUp(board_id);
         }
 
         return "/boardPage/detail";
