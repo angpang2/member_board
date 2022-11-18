@@ -16,7 +16,7 @@ public class BoardDTO {
     private String writer;
     private String title;
     private String content;
-    private int boardHits = 0;
+    private int hit = 0;
     private Timestamp regdate;
     private Timestamp updatedate;
     private Timestamp deleteddate;
@@ -25,4 +25,6 @@ public class BoardDTO {
     //
     private String filename;
     private Long member_id;
+    //댓글수 추가
+    private int commentCount = 0;
 }

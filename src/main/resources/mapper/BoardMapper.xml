@@ -50,6 +50,15 @@
         select * from comment where board_id = #{board_id}
     </select>
 
+    <select id="commentCount" resultType="Integer" parameterType="Long">
+        select count(comment_id) from comment where board_id = #{board_id}
+    </select>
+
+    <update id="up" parameterType="Long">
+        update board set commentcount=commentcount+1 where board_id = #{board_id}
+    </update>
+
+
 
 
 

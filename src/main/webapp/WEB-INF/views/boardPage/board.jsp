@@ -72,7 +72,7 @@
         <tr>
             <td class="frm"><input type="checkbox" name="" value=""><label for="chk_sel10">선택</label></td>
             <td class="num">${board.board_id}</td>
-            <td class="title"><a href="board/detail?board_id=${board.board_id}">${board.title}</a></td>
+            <td class="title"><a href="board/detail?board_id=${board.board_id}">${board.title}[${board.commentCount}]</a></td>
             <td><a href="#">${board.writer}</a></td>
             <td class="date">${board.regdate}</td>
             <td class="hit">12345</td>
@@ -138,6 +138,7 @@
         </c:otherwise>
         </c:choose>
 
+            <button type="button" id="commentCount" onclick="commentCount()">자동클릭버튼</button>
 
 
 
@@ -152,6 +153,12 @@
 
 
     }
+    const autoEvent = () => {
+        $("#commentCount").trigger('click');
+    }
+
+
+
 
 
 </script>

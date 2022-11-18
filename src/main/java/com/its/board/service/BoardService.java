@@ -92,29 +92,18 @@ public class BoardService {
         return boardRepository.commentList(board_id);
 
     }
+
+    public int commentCount(Long board_id) {
+        return boardRepository.commentCount(board_id);
+
+    }
+
+    public void commentCountUp(Long board_id) {
+        boardRepository.commentCountUp(board_id);
+
+    }
 }
 
 
 
-//
-//
-//    public PageDTO pagingParam(int page) {
-//        //전체 글 갯수 조회
-//        int boardCount = boardRepository.boardCount();
-//        //전체 페이지 갯수 계산
-//        int maxPage = (int) (Math.ceil((double) boardCount / PagingConst.PAGE_LIMIT));
-//        // 시작 페이지 값 계산 (1, 4, 7, 10)
-//        int startPage = (((int)(Math.ceil((double) page / PagingConst.BLOCK_LIMIT))) - 1) * PagingConst.BLOCK_LIMIT + 1;
-//        //끝 페이지 값 계산 (3, 6, 9 , 12)
-//        int endPage = startPage + PagingConst.BLOCK_LIMIT - 1;
-//        if(endPage>maxPage){
-//            endPage = maxPage;
-//        }
-//
-//        PageDTO pageDTO = new PageDTO();
-//        pageDTO.setPage(page);
-//        pageDTO.setMaxPage(maxPage);
-//        pageDTO.setEndPage(endPage);
-//        pageDTO.setStartPage(startPage);
-//        return pageDTO;
-//    }
+

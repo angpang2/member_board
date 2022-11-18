@@ -61,4 +61,15 @@ public class BoardRepository {
     public List<CommentDTO> commentList(Long board_id) {
         return sql.selectList("Board.commentList",board_id);
     }
+
+    public int commentCount(Long board_id) {
+        return sql.selectOne("Board.commentCount",board_id);
+
+    }
+
+    public void commentCountUp(Long board_id) {
+        System.out.println("리파지토리board_id = " + board_id);
+        int result = sql.update("Board.up",board_id);
+        System.out.println("result = " + result);
+    }
 }

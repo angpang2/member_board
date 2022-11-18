@@ -53,10 +53,21 @@ public class BoardController {
         List<CommentDTO> commentDTOList = boardService.commentList(board_id);
         if(commentDTOList != null){
             model.addAttribute("commentList",commentDTOList);
+            //댓글수 count
+            int commentCount = boardService.commentCount(board_id);
+            model.addAttribute("commentCount",commentCount);
+
         }
 
         return "/boardPage/detail";
     }
+
+    @GetMapping("/commentCount")
+    public void commentCoint(@RequestParam("board_id")Long board_id , Model model){
+        int commentCount = boardService.commentCount(board_id);
+        model.addAttribute("commentCount",commentCount);
+    }
+
 
     @GetMapping("/updateForm")
     public String updateForm(@RequestParam("board_id")Long board_id,Model model){
@@ -81,6 +92,11 @@ public class BoardController {
     @PostMapping("/board/comment")
     public String commentSave(@ModelAttribute CommentDTO commentDTO){
         boardService.commentSave(commentDTO);
+        //board_id를 가지고 commentcount +1 시키기
+        Long board_id = commentDTO.getBoard_id();
+        System.out.printf("board_id = " + board_id);
+        boardService.commentCountUp(board_id);
+
         return "redirect:/board/detail?board_id="+commentDTO.getBoard_id();
     }
 
