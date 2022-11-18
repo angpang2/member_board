@@ -31,6 +31,7 @@
         </c:if>
         <c:if test="${sessionScope.member.member_id !=null}">
             <input type="button" value="수정하기" onclick="modify()">
+            <input type="button" value="삭제하기" onclick="boardDelete()">
         </c:if>
 </div>
 
@@ -40,8 +41,11 @@
 </body>
 <script>
     const modify = () => {
-        console.log("함수호출")
         location.href = "/updateForm?board_id="+${board.board_id}
+    }
+
+    const boardDelete = () => {
+      location.href = "/board/delete?board_id="+${board.board_id}
     }
 
 </script>

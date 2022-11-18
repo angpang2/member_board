@@ -38,6 +38,10 @@
         update board set title = #{title} , content=#{content} where board_id=#{board_id}
     </update>
 
+    <delete id="delete" parameterType="Long">
+        delete from board where board_id = #{board_id}
+    </delete>
+
 
 
 

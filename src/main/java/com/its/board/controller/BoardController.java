@@ -6,6 +6,7 @@ import com.its.board.dto.PageDTO;
 import com.its.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,6 +62,13 @@ public class BoardController {
     public String boardUpdate(@ModelAttribute BoardDTO boardDTO){
         System.out.println("boardDTO = " + boardDTO);
         boardService.boardUpdate(boardDTO);
+        return "redirect:/board";
+    }
+
+    @GetMapping("/board/delete")
+    public String boardDelete(@RequestParam("board_id")Long board_id){
+        System.out.println("board_id = " + board_id);
+        boardService.boardDelete(board_id);
         return "redirect:/board";
     }
 
