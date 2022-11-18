@@ -12,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BoardController {
@@ -119,6 +121,17 @@ public class BoardController {
         List<CommentDTO> commentDTOList = boardService.commentList(board_id);
         return commentDTOList;
     }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("searchType")String searchType,@RequestParam("keyword")String keyword ,Model model){
+        Map<String ,String> searchMap = new HashMap<>();
+        searchMap.put("searchType",searchType);
+        searchMap.put("keyword",keyword);
+        List<BoardDTO> boardList = boardService.search(searchMap);
+        model.addAttribute("boardList",boardList);
+        return "/boardPage/board";
+    }
+
 
 
 

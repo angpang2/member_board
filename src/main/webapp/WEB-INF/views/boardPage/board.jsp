@@ -139,6 +139,23 @@
         </c:choose>
 
             <button type="button" onclick="home()">홈으로</button>
+<%--검색창--%>
+        <form action="/board" method="get">
+            <select name="searchType">
+                <option value="title">제목</option>
+                <option value="content">내용</option>
+                <option value="writer">작성자</option>
+            </select>
+            <input type="text" name="keyword">
+            <input type="button" value="검색" onclick="search()">
+
+        </form>
+
+
+    </ul>
+</div>
+
+
 
 
 
@@ -156,6 +173,14 @@
     const home = () => {
         location.href = "/"
     }
+
+    const serch = () => {
+        const searchType = document.querySelector("select[name='searchType']").value
+        const keyword = document.querySelector("input[name='keyword']").value
+        location.href = "/search?searchType="+searchType+"&keyword="+keyword
+
+    }
+
 
 
 

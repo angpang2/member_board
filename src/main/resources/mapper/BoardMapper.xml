@@ -62,6 +62,11 @@
         update board set hit=hit+1 where board_id = #{board_id}
     </update>
 
+<!--    <select id="search" resultType="board" parameterType="search">-->
+<!--        select * from board where title like '%${search}%' or content like '%${search}%' order by board_id desc limit #{start} , #{PAGE_LIMIT}-->
+<!--    </select>-->
+
+
 
 
 

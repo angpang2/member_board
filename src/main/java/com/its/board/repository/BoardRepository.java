@@ -77,4 +77,9 @@ public class BoardRepository {
         sql.update("Board.boardUp",board_id);
 
     }
+
+    public List<BoardDTO> search(Map<String, String> searchMap) {
+        return sql.selectList("Board.search",searchMap);
+
+    }
 }

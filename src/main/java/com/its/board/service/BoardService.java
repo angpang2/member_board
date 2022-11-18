@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BoardService {
@@ -106,6 +107,11 @@ public class BoardService {
     public void boardUp(Long board_id) {
         boardRepository.boardUp(board_id);
 
+
+    }
+
+    public List<BoardDTO> search(Map<String, String> searchMap) {
+        return boardRepository.search(searchMap);
 
     }
 }
