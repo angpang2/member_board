@@ -47,7 +47,7 @@
    </insert>
 
     <select id="commentList" resultType="comment" parameterType="Long">
-        select * from comment where board_id = #{board_id}
+        select * from comment where board_id = #{board_id} order by comment_id desc
     </select>
 
     <select id="commentCount" resultType="Integer" parameterType="Long">

@@ -75,7 +75,7 @@
             <td class="title"><a href="board/detail?board_id=${board.board_id}">${board.title}[${board.commentCount}]</a></td>
             <td><a href="#">${board.writer}</a></td>
             <td class="date">${board.regdate}</td>
-            <td class="hit">12345</td>
+            <td class="hit">${board.hit}</td>
         </tr>
         </tr>
     </c:forEach>
@@ -138,7 +138,7 @@
         </c:otherwise>
         </c:choose>
 
-            <button type="button" id="commentCount" onclick="commentCount()">자동클릭버튼</button>
+            <button type="button" onclick="home()">홈으로</button>
 
 
 
@@ -153,8 +153,8 @@
 
 
     }
-    const autoEvent = () => {
-        $("#commentCount").trigger('click');
+    const home = () => {
+        location.href = "/"
     }
 
 
