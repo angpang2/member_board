@@ -76,6 +76,19 @@ public class MemberController {
 
     }
 
+    @GetMapping("/member/update")
+    public String updateForm(){
+        return "memberPage/updateForm";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+        System.out.println("memberDTO = " + memberDTO + ", session = " + session);
+        memberService.update(memberDTO);
+        session.invalidate();
+        return "/index";
+    }
+
 
 
 

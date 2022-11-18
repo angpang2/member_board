@@ -42,4 +42,8 @@ public class MemberService {
     public MemberDTO nicknameCheck(String nickname) {
         return memberRepository.nicknameCheck(nickname);
     }
+
+    public void update(MemberDTO memberDTO) {
+        memberRepository.update(memberDTO);
+    }
 }

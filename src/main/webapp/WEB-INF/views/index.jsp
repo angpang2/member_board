@@ -90,6 +90,8 @@
         <div id="login">
             <h4>Log In</h4>
                 <span>${sessionScope.member.nickname}님 환영합니다.</span>
+            //회원정보수정 페이지로 이동
+            <a href="/member/update" target="_blank">회원정보수정</a>
             <li><a href="#"  onclick="con()">로그아웃</a> </li>
         </div>
     </c:otherwise>

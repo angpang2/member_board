@@ -29,4 +29,9 @@ public class MemberRepository {
     public MemberDTO nicknameCheck(String nickname) {
         return sql.selectOne("Member.nicknameCheck",nickname);
     }
+
+    public void update(MemberDTO memberDTO) {
+        System.out.println("리파지토리memberDTO = " + memberDTO);
+        sql.selectOne("Member.update",memberDTO);
+    }
 }

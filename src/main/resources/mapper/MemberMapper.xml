@@ -20,6 +20,15 @@
         select * from member where nickname=#{nickname}
     </select>
 
+    <update id="update" parameterType="member">
+        update member set nickname=#{nickname} where member_id=#{member_id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from member where member_id=#{member_id}
+    </delete>
+
+
 
 
 </mapper>
