@@ -1,6 +1,7 @@
 package com.its.board.controller;
 
 import com.its.board.dto.BoardDTO;
+import com.its.board.dto.CommentDTO;
 import com.its.board.dto.FileDTO;
 import com.its.board.dto.PageDTO;
 import com.its.board.service.BoardService;
@@ -48,6 +49,12 @@ public class BoardController {
             model.addAttribute("file",result);
         }
         model.addAttribute("board",boardDTO);
+        //댓글 있으면 가져오기
+        List<CommentDTO> commentDTOList = boardService.commentList(board_id);
+        if(commentDTOList != null){
+            model.addAttribute("commentList",commentDTOList);
+        }
+
         return "/boardPage/detail";
     }
 
@@ -71,6 +78,13 @@ public class BoardController {
         boardService.boardDelete(board_id);
         return "redirect:/board";
     }
+    @PostMapping("/board/comment")
+    public String commentSave(@ModelAttribute CommentDTO commentDTO){
+        boardService.commentSave(commentDTO);
+        return "redirect:/board/detail?board_id="+commentDTO.getBoard_id();
+    }
+
+
 
 
 }

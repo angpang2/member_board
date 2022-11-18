@@ -1,6 +1,7 @@
 package com.its.board.service;
 
 import com.its.board.dto.BoardDTO;
+import com.its.board.dto.CommentDTO;
 import com.its.board.dto.FileDTO;
 import com.its.board.dto.PageDTO;
 import com.its.board.repository.BoardRepository;
@@ -79,6 +80,17 @@ public class BoardService {
 
     public void boardDelete(Long board_id) {
         boardRepository.boardDelete(board_id);
+    }
+
+
+    public void commentSave(CommentDTO commentDTO) {
+        boardRepository.commentSave(commentDTO);
+
+    }
+
+    public List<CommentDTO> commentList(Long board_id) {
+        return boardRepository.commentList(board_id);
+
     }
 }
 

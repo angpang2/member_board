@@ -34,6 +34,29 @@
             <input type="button" value="삭제하기" onclick="boardDelete()">
         </c:if>
 </div>
+<%--댓글달기--%>
+<div class="container" id="comment-form" style="width: 800px; margin-top: 10px;">
+    <form action="/board/comment" method="post">
+        <input type="hidden" name="board_id" value="${board.board_id}">
+        <input type="hidden" name="member_id" value="${sessionScope.member.member_id}">
+        <input type="hidden" name="writer" value="${sessionScope.member.nickname}">
+        <input type="text" name="content" class="form-control">
+        <input type="submit" value="댓글달기" class="btn btn-primary">
+    </form>
+</div>
+<%--댓글보기--%>
+<div class="container" id="comment-list" style="width: 800px; margin-top: 10px;">
+    <c:forEach var="comment" items="${commentList}">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">${comment.writer}</h3>
+            </div>
+            <div class="panel-body">
+                ${comment.content}
+            </div>
+        </div>
+    </c:forEach>
+</div>
 
 
 

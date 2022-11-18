@@ -42,6 +42,14 @@
         delete from board where board_id = #{board_id}
     </delete>
 
+   <insert id="commentSave" parameterType="comment">
+         insert into comment(content,board_id,member_id,writer)values(#{content},#{board_id},#{member_id},#{writer})
+   </insert>
+
+    <select id="commentList" resultType="comment" parameterType="Long">
+        select * from comment where board_id = #{board_id}
+    </select>
+
 
 
 
